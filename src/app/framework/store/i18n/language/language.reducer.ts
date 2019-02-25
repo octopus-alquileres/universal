@@ -1,11 +1,11 @@
-// app
 import { errorFn, startProcessingFn, stopProcessingFn } from '~/app/framework/ngrx';
 
-// module
 import { LanguageAction, languageActions } from './language.actions';
 import { Language } from './language.model';
 import { initialState, State } from './language.state';
 
+// NOTE: for AoT compilation
+// tslint:disable-next-line
 export function reducer(state: State = initialState, action: LanguageAction): State {
   return languageActions.match({
     i18nUseLanguage: () => startProcessingFn<State>(state),
